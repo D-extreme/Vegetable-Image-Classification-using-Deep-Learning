@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method = "post" enctype="multipart/form-data"> 
+    {% csrf_token %} 
+    <!-- {{ form.as_p }}  -->
+    <input type="file" name="image">
+    <button type="submit">Upload</button> 
+</form>
+{% if url%}
+    <h1>Uploaded Image</h1>
+    <img src  = "{{url}}" style="width:250px;height:250px;">
+{% endif %}
+{% if prediction %}
+    <h1>{{prediction}}</h1>
+{% endif %}
+{% endblock %}
